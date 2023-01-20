@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <style>
+        body{
+           
+            background-color: rgb(49, 189, 220);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container{
+            text-align: center;
+            background-color: rgb(197, 233, 232);
+            padding: 50px;
+          
+            border: solid 2px rgb(192, 92, 25);
+          }
+          h1{
+            margin: 0px 0px 10px 0px;
+          }
+          input{
+            width: 200px ;
+            margin: 10px 0px;
+            padding: 10px;
+          }
+          input[type="submit"]{
+            width: 222px;
+            background-color: rgb(11, 142, 129);
+            border: 0px;
+            color: rgb(234, 239, 242);
+          }
+          .error{
+            color: red;
+            margin-top: 0px;
+            text-align: left;
+            font-size: small;
+          }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Log In</h1>
+      <form action="" onsubmit="return validateForm()">
+       
+        <input type="text" placeholder="User Name" id="user"><br>
+       <p id="userError" class="error"></p>
+        <input type="password" placeholder="Password" id="pswd"><br>
+        <p id="passError" class="error"></p>
+        <input type="submit" placeholder="Submit" id="submit">
+      
+      </form>
+    </div>
+    <script>
+        let username=document.getElementById("user");
+        let pswd=document.getElementById("pswd");
+        let flag=0;
+      function validateForm(){
+      if(username.value==""){
+document.getElementById("userError").innerHTML="UserName is empty"
+        
+      }
+    else if(username.value<3){
+      document.getElementById("userError").innerHTML="UserName require min 3"
+      
+    }
+    else{
+      document.getElementById("userError").innerHTML=""
+      flag=1;
+    }
+  if(pswd.value==""){
+    document.getElementById("passError").innerHTML="Password is empty"
+  }
+  else if(pswd.value<4){
+    document.getElementById("passError").innerHTML="Password require min 4"
+  }
+  else{
+    document.getElementById("passError").innerHTML=""
+    flag=1;
+  }
+if(flag)
+return true;
+else
+return false;
+      }
+    </script>
+</body>
+</html>
